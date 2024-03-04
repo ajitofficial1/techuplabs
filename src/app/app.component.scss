@@ -1,0 +1,124 @@
+.list-of-pins {
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 100%;
+
+    .title {
+        text-align: center;
+        margin-top: 50px;
+        margin-bottom: 30px;
+    }
+
+    table {
+        width: 100%;
+
+        thead {
+            th {
+                text-align: center;
+                vertical-align: middle;
+                padding: 15px;
+                border: 1px solid #ddd;
+
+                &:first-child {
+                    border-radius: 5px 0 0 5px;
+                }
+
+                &:last-child {
+                    border-radius: 0 5px 5px 0;
+                }
+            }
+        }
+
+        tbody {
+            tr {
+                border-bottom: 1px solid #ddd;
+
+                td {
+                    text-align: center;
+                    padding: 15px;
+                    vertical-align: middle;
+                    border: 1px solid #ddd;
+
+                    &:first-child {
+                        border-radius: 5px 0 0 5px;
+                    }
+
+                    &:last-child {
+                        border-radius: 0 5px 5px 0;
+                    }
+
+                    &.pin {
+                        width: 20%;
+
+                        img {
+                            width: 100%;
+                            height: auto;
+                        }
+                    }
+
+                    &.customers {
+                        li {
+                            padding: 5px;
+                            background-color: #f2f2f2;
+                            border-radius: 5px;
+                            margin-bottom: 5px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .add-section {
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+
+        .add-button {
+            width: 200px;
+            height: 50px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 10px;
+        }
+    }
+}
+
+.modal-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-50%, -50%);
+}
+
+.backdrop {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.backdrop.cdk-overlay-backdrop.mat-dialog-backdrop {
+    opacity: 1 !important;
+}
+
+::ng-deep .cdk-overlay-pane {
+    align-items: center;
+}
+
+::ng-deep .cdk-overlay-pane {
+    align-items: center;
+}
+
+.add-button:disabled {
+  background-color: #ccc;
+  opacity: 0.5;
+}
+
+img.pin-image {
+    width: 40px;
+    height: 40px;
+    max-width: 40px;
+    max-height: 40px;
+}

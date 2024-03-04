@@ -1,0 +1,40 @@
+<div class="create-customer-form">
+  <form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="title">Title*</label>
+      <input type="text" class="form-control" id="title" formControlName="title">
+      <div *ngIf="customerForm.controls['title'].errors && customerForm.controls['title'].touched" class="alert alert-danger">
+          <div>Title is required.</div>
+      </div>      
+    </div>
+    <div class="form-group">
+      <label for="email">Email*</label>
+      <input type="email" class="form-control" id="email" formControlName="email">      
+      <div *ngIf="customerForm.controls['email'].errors && customerForm.controls['email'].touched" class="alert alert-danger">
+        <div>Email is required & Email should be valid.</div>
+    </div>
+    </div>
+    <div class="form-group">
+      <label for="region">Region*</label>
+      <ngx-select formControlName="region" [allowClear]="true" [items]="region" optionValueField="region"
+        optionTextField="region" placeholder="Select Region" (selectionChanges)="regionSelectionChanges($event)">
+      </ngx-select>
+      <div *ngIf="customerForm.controls['region'].errors && customerForm.controls['region'].touched" class="alert alert-danger">
+          <div>Region is required.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="country">Country*</label>
+      <!-- <ngx-select formControlName="country" [disabled]="filteredCountry.length === 0" [allowClear]="true" [items]="filteredCountry" optionValueField="country"
+        optionTextField="country" placeholder="Select Country">
+      </ngx-select> -->
+      <ngx-select formControlName="country" [allowClear]="true" [items]="filteredCountry" optionValueField="country"
+        optionTextField="country" placeholder="Select Country">
+      </ngx-select>
+      <div *ngIf="customerForm.controls['country'].errors && customerForm.controls['country'].touched" class="alert alert-danger">
+          <div>Country is required.</div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Create Customer</button>
+  </form>
+</div>

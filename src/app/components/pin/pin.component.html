@@ -1,0 +1,40 @@
+<div class="pin-add-form">
+  <form [formGroup]="pinForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="title">Title*</label>
+      <input type="text" class="form-control" id="title" formControlName="title">
+      <div *ngIf="pinForm.controls['title'].errors && pinForm.controls['title'].touched" class="alert alert-danger">
+        <div>Title is required.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="file">File*</label><br>
+      <ng2-file-upload name="file" (onFileDrop)="onFileDrop($event)" (onFileOver)="onFileOver($event)"
+        (onFileSelect)="onFileSelect($event)" (onFileRemove)="onFileRemove($event)" accept="image/*"
+        maxFileSize="2048000" autoUpload formControlName="file">
+        <div class="file-drop-zone">Drop files here or click to upload</div>
+      </ng2-file-upload>
+    </div>
+    <div class="form-group">
+      <label for="collaboratory">Select Collaboratory*</label>
+      <ngx-select formControlName="collaboratory" [multiple]="true" [allowClear]="true" [items]="collaboratory" optionValueField="title"
+        optionTextField="title" placeholder="Select Collaboratory">
+      </ngx-select>
+      <div *ngIf="pinForm.controls['collaboratory'].errors && pinForm.controls['collaboratory'].touched" class="alert alert-danger">
+        <div>Collaboratory is required.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="privacy">Access Level*</label><br>
+      <div class="form-check form-check-inline">
+        <input type="radio" name="privacy" value="private" formControlName="privacy" required>
+        <label class="form-check-label" for="private">Private</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input type="radio" name="privacy" value="public" formControlName="privacy" required>
+        <label class="form-check-label" for="public">Public</label>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Create Pin</button>
+  </form>
+</div>
